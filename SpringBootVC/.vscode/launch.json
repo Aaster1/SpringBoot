@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-TestApplication<test>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.test.TestApplication",
+      "projectName": "test",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-BoardApplication<board>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.joeun.board.BoardApplication",
+      "projectName": "board",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringSecurityApplication<spring-security>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.joeun.springsecurity.SpringSecurityApplication",
+      "projectName": "spring-security",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-LayoutApplication<layout>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.joeun.layout.LayoutApplication",
+      "projectName": "layout",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringSecurityApplication<shop>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.joeun.shop.SpringSecurityApplication",
+      "projectName": "shop",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

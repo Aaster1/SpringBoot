@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팀 모집글 작성</title>
+</head>
+<body>
+  
+  <form action="/team/update" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="_csrf.token">
+
+    <label for="title">제목</label>
+    <input type="text" name="title" id="title" th:value="${team.title}">
+    <label for="capacity">모집 팀 수</label>
+    <select name="capacity">
+      <option value="1" th:selected="${team.capacity==1}">1명</option>
+      <option value="2" th:selected="${team.capacity==2}">2명</option>
+      <option value="3" th:selected="${team.capacity==3}">3명</option>
+      <option value="4" th:selected="${team.capacity==4}">4명</option>
+      <option value="5" th:selected="${team.capacity==5}">5명</option>
+      <option value="6" th:selected="${team.capacity==6}">6명</option>
+    </select>
+
+    <input type="hidden" name="writer" th:value="${#authentication.principal.users.nickname}">
+    <input type="hidden" name="username" th:value="${#authentication.principal.users.username}">
+    <label for="liveDate">공연일자</label>
+    <input type="date" name="liveDate" th:value="team.liveDate">
+    <label for="liveStTime">공연시작시각</label>
+    <input type="time" name="liveStTime" id="liveStTime" th:value="team.liveStTime">
+    <label for="liveEndTime">공연종료시각</label>
+    <input type="time" name="liveEndTime" id="liveEndTime" th:value="team.liveEndTime">
+    <label for="location" >지역</label>
+    <select name="location" id="location">
+      <option value="서울" th:seleted="${team.location.equals('서울')}">서울</option>
+      <option value="인천" th:seleted="${team.location.equals('인천')}">인천</option>
+      <option value="경기도" th:seleted="${team.location.equals('경기')}">경기</option>
+      <option value="강원도" th:seleted="${team.location.equals('강원도')}">강원도</option>
+    </select>
+    <label for="address">장소</label>
+    <input type="text" name="address" id="address" th:value="${team.address}">
+    <label for="account">계좌번호</label>
+    <input type="text" name="account" id="account" th:value="${team.account}">
+    <label for="price">가격</label>
+    <input type="text" name="price" id="price" oninput="this.value =this.value.replace(/[^0-9]/g, '');" th:value="${team.price}">
+    <label for="content">내용</label>
+    <textarea name="content" id="content" cols="30" rows="10" th:value="team.content"></textarea>
+
+    <input type="submit" value="등록">
+  </form>
+  
+  <a href="/team">목록</a>
+
+</body>
+</html>

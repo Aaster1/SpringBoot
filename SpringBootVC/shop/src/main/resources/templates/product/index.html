@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{/UI/user/layout/main_layout}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 목록</title>
+</head>
+<body layout:fragment="content">
+  
+  <div class="container">
+
+    <th:block th:each="product : ${productList}">
+
+    <h2 th:text="${product.name}"></h2>
+    <img th:src="'/product/img?file='+${product.file}" alt="">
+    <h4 th:text="'가격 : ' + ${product.unitPrice}"></h4>
+
+    </th:block>
+
+  </div>
+
+</body>
+</html>

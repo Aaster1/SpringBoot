@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <th>
+    <td>마감</td>
+    <td>제목</td>
+    <td>모집 현황</td>
+    <td>작성자</td>
+    <td>가격</td>
+    <td>지역</td>
+    <td>공연일자</td>
+    <td>갱신일자</td>
+    <td>조회수</td>
+  </th>
+  <th:block th:each="team : ${teamList}">
+    <tr>
+      <a th:href="|/team/read?teamNo=${team.teamNo}|">
+      <td th:text="${team.confirmed !=0 ?'마감':'모집중'}"></td>
+      <td th:text="${team.title}"></td>
+      <td th:text="${team.recStatus}+'/'+${team.capacity}"></td>
+      <td th:text="${team.writer}"></td>
+      <td th:text="${team.price}"></td>
+      <td th:text="${team.location}"></td>
+      <td th:text="${team.liveDate}"></td>
+      <td th:text="${team.updDate}"></td>
+      <td th:text="${team.views}"></td>
+    </a>
+    </tr>
+  
+  
+  </th:block>
+  
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판 목록</title>
+</head>
+<body>
+
+
+
+
+
+  <a href="/board/insert">글쓰기</a>
+
+  <form action="/board/list" method="POST">
+
+    <select name="searchType">
+
+      <option value="0">전체</option>
+      <option value="1">제목</option>
+      <option value="2">제목+작성자</option>
+      <option value="3">작성자</option>
+
+    </select>
+
+    <input type="text" name="keyword">
+
+    <input type="submit" value="검색">
+
+  </form>
+
+
+  <!-- <a th:href="@{${#httpServletRequest.contextPath}}/board/insert">글쓰기</a> -->
+  <table border="1">
+    
+    <th style="background-color: #ddd;">
+      <td style="background-color: #ddd;">글번호</td>
+      <td style="background-color: #ddd;">제목</td>
+      <td style="background-color: #ddd;">작성자</td>
+      <td style="background-color: #ddd;">내용</td>
+      <td style="background-color: #ddd;">작성일자</td>
+      <td style="background-color: #ddd;">수정일자</td>
+      <td style="background-color: #ddd;">조회수</td>
+    </th>
+
+    <tr th:each="board : ${boardList}">
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.boardNo}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.title}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.writer}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.content}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.regDate}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.updDate}" ></a></td>
+      <td><a th:href="|/board/read?boardNo=${board.boardNo}|" th:text="${board.views}" ></a></td>
+    </tr>
+
+
+
+  </table>
+  
+</body>
+</html>

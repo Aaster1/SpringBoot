@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 수정</title>
+</head>
+<body>
+  
+  <h1>게시글 수정 화면입니다.</h1>
+
+  <form action="/board/update" method="POST">
+
+
+    <input type="hidden" name="boardNo" th:value="${board.boardNo}">
+    <label for="title">제목</label>
+    <input type="text" name="title" th:value="${board.title}" id="title">
+    <label for="writer">작성자</label>
+    <input type="text" name="writer" th:value="${board.writer}" id="writer">
+    <label for="content">내용</label>
+    <input type="text" name="content" th:value="${board.content}" id="content">
+
+    <input type="submit" value="수정하기">
+
+  </form>
+
+  <form action="/board/delete" method="POST">
+    <input type="hidden" name="boardNo" th:value="${board.boardNo}">
+    <input type="submit" value="삭제하기">
+  </form>
+  
+</body>
+</html>

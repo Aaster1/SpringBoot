@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팀 모집글 작성</title>
+</head>
+<body>
+  
+  <form action="/team/isnert" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="_csrf.token">
+
+    <label for="title">제목</label>
+    <input type="text" name="title" id="title">
+    <label for="capacity">모집 팀 수</label>
+    <select name="capacity">
+      <option value="1">1명</option>
+      <option value="2">2명</option>
+      <option value="3">3명</option>
+      <option value="4">4명</option>
+      <option value="5">5명</option>
+      <option value="6">6명</option>
+    </select>
+
+    <input type="hidden" name="writer" th:value="${#authentication.principal.users.nickname}">
+    <input type="hidden" name="username" th:value="${#authentication.principal.users.username}">
+    <label for="liveDate">공연일자</label>
+    <input type="date" name="liveDate">
+    <label for="liveStTime">공연시작시각</label>
+    <input type="time" name="liveStTime">
+    <label for="liveEndTime">공연종료시각</label>
+    <input type="time" name="liveEndTime">
+    <label for="location">지역</label>
+    <select name="location" id="location">
+      <option value="서울">서울</option>
+      <option value="인천">인천</option>
+      <option value="경기도">경기</option>      <option value="강원도">강원도</option>
+    </select>
+    <label for="address">장소</label>
+    <input type="text" name="address" id="address">
+
+    <label for="account">계좌번호</label>
+    <input type="text" name="account" id="account">
+    <label for="price">가격</label>
+    <input type="text" name="price" id="price"  oninput="this.value =this.value.replace(/[^0-9]/g, '')">
+    <label for="content">내용</label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+
+    <input type="submit" value="등록">
+  </form>
+  
+  <a href="/team">목록</a>
+
+</body>
+</html>

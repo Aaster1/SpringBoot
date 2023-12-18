@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인화면입니다.</title>
+</head>
+<body>
+  
+  <h1>Spring Security</h1>
+
+  <h3 th:text="'ID : ' +${loginId}"></h3>
+
+  <th:block sece:authorize="hasRole('ROLE_USER')">
+    <a href="/user">사용자</a>
+
+  </th:block>
+  <th:block sece:authorize="hasRole('ROLE_ADMIN')">
+    <a href="/admin">관리자</a>
+
+  </th:block>
+  <th:block sece:authorize="isAnonymous()">
+    <a href="/login">로그인</a>
+    <a href="/join">회원가입</a>
+    
+  </th:block>
+  <th:block sece:authorize="isAuthenticated()">
+
+  <form action="/logout" method="POST">
+      <input type="submit" value="로그아웃">
+  </form>
+
+  </th:block>
+
+
+</body>
+</html>
